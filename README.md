@@ -15,7 +15,6 @@ The babysitter:
 - only babysits for one family per night
 - gets paid for full hours (no fractional hours)
 - should be prevented from mistakes when entering times (e.g. end time before start time, or outside of allowable work hours)
-- can start and end a night of babysitting at any times within the allowable range (e.g. start at 10pm and leave at 1am)
 
 The job:
 - Pays different rates for each family (based on bedtimes, kids and pets, etc...)
