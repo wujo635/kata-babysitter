@@ -17,10 +17,15 @@ public class BabysitterTest {
         babysitter = new Babysitter();
     }
 
-    // A new babysitter is not busy
+    // New babysitter is not busy
     @Test
     public void testNewBabysitterNotBusy() {
         assertEquals(false, babysitter.isBusy());
     }
 
+    // New babysitter has zero pay
+    @Test
+    public void testNewBabysitterPay() {
+        assertEquals(0, babysitter.getPay());
+    }
 }
