@@ -53,4 +53,13 @@ public class BabysitterTest {
         assertEquals(true, babysitter.isBusy());
     }
 
+    // Babysit only one family per night
+    @Test
+    public void testMultipleFamilies() {
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage("Babysitter is busy tonight");
+        babysitter.setJob("A");
+        babysitter.setJob("B");
+    }
+
 }

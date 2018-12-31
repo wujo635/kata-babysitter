@@ -19,11 +19,17 @@ public class Babysitter {
     Functions
      */
     void setJob(String family) {
-        if (!family.matches("[a-cA-C]")) {
-            throw new IllegalArgumentException("Invalid family input");
-        } else {
+        // Throw error if babysitter is already busy
+        if (this.busy == true) {
+            throw new RuntimeException("Babysitter is busy tonight");
+        }
+
+        // Check if family is valid, throw error otherwise
+        if (family.matches("[a-cA-C]")) {
             this.family = family.toUpperCase().charAt(0);
             this.busy = true;
+        } else {
+            throw new IllegalArgumentException("Invalid family input");
         }
     }
 
