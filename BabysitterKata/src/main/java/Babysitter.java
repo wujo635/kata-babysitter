@@ -23,6 +23,7 @@ public class Babysitter {
             throw new IllegalArgumentException("Invalid family input");
         } else {
             this.family = family.toUpperCase().charAt(0);
+            this.busy = true;
         }
     }
 

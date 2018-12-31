@@ -46,4 +46,11 @@ public class BabysitterTest {
         assertEquals('A', babysitter.getFamily());
     }
 
+    // Babysitter with job is busy
+    @Test
+    public void testBusyBabysitter() {
+        babysitter.setJob("B");
+        assertEquals(true, babysitter.isBusy());
+    }
+
 }
