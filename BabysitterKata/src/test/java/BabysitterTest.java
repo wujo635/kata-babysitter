@@ -36,20 +36,20 @@ public class BabysitterTest {
     public void testInvalidFamily() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid family input");
-        babysitter.setJob("D");
+        babysitter.setFamily("D");
     }
 
     // Family input is valid
     @Test
     public void testValidFamily() {
-        babysitter.setJob("A");
+        babysitter.setFamily("A");
         assertEquals('A', babysitter.getFamily());
     }
 
     // Babysitter with job is busy
     @Test
     public void testBusyBabysitter() {
-        babysitter.setJob("B");
+        babysitter.setFamily("B");
         assertEquals(true, babysitter.isBusy());
     }
 
@@ -58,8 +58,8 @@ public class BabysitterTest {
     public void testMultipleFamilies() {
         expectedException.expect(RuntimeException.class);
         expectedException.expectMessage("Babysitter is busy tonight");
-        babysitter.setJob("A");
-        babysitter.setJob("B");
+        babysitter.setFamily("A");
+        babysitter.setFamily("B");
     }
 
     // Babysitter with earliest start time

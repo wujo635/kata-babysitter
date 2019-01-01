@@ -1,6 +1,6 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
+import java.time.*;
+import java.time.format.*;
 
 public class Babysitter {
 
@@ -10,7 +10,7 @@ public class Babysitter {
     int pay;
     char family;
     boolean busy;
-    String startTime, endTime;
+    LocalTime startTime, endTime;
 
     /*
     Constructor(s)
@@ -23,7 +23,7 @@ public class Babysitter {
     /*
     Functions
      */
-    void setJob(String family) {
+    void setFamily(String family) {
         // Throw error if babysitter is already busy
         if (this.busy == true) {
             throw new RuntimeException("Babysitter is busy tonight");
@@ -38,23 +38,12 @@ public class Babysitter {
         }
     }
 
-    void setStart(String time) {
-        Date date;
-        try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm a");
-            this.startTime = dateFormat.format(dateFormat.parse(time));
-        }
-        catch (ParseException e) {
-            e.printStackTrace();
-        }
+    void setStart(String inputTime) {
+        this.startTime = LocalTime.parse(inputTime, DateTimeFormatter.ofPattern("h:mm a"));
     }
 
     String getStart() {
-        return this.startTime;
-    }
-
-    void calculatePay() {
-
+        return this.startTime.format(DateTimeFormatter.ofPattern("h:mm a"));
     }
 
     char getFamily() {
@@ -67,5 +56,9 @@ public class Babysitter {
 
     boolean isBusy() {
         return this.busy;
+    }
+
+    void calculatePay() {
+
     }
 }
