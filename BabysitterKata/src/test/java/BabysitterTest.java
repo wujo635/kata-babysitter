@@ -62,4 +62,11 @@ public class BabysitterTest {
         babysitter.setJob("B");
     }
 
+    // Babysitter with earliest start time
+    @Test
+    public void testEarliestStartTime() {
+        babysitter.setStart("5:00 PM");
+        assertEquals("5:00 PM", babysitter.getStart());
+    }
+
 }

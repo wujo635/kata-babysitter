@@ -1,3 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Babysitter {
 
     /*
@@ -6,6 +10,7 @@ public class Babysitter {
     int pay;
     char family;
     boolean busy;
+    String startTime, endTime;
 
     /*
     Constructor(s)
@@ -31,6 +36,21 @@ public class Babysitter {
         } else {
             throw new IllegalArgumentException("Invalid family input");
         }
+    }
+
+    void setStart(String time) {
+        Date date;
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm a");
+            this.startTime = dateFormat.format(dateFormat.parse(time));
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    String getStart() {
+        return this.startTime;
     }
 
     void calculatePay() {
