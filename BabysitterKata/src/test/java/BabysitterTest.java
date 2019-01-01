@@ -69,4 +69,21 @@ public class BabysitterTest {
         assertEquals("5:00 PM", babysitter.getStart());
     }
 
+    // Start time is too early for babysitter
+    @Test
+    public void testStartTimeTooEarly() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Babysitter is not available during specified time");
+        babysitter.setStart("4:59 PM");
+    }
+
+    // Start time is too late for babysitter
+    @Test
+    public void testStartTimeTooLate() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Babysitter is not available during specified time");
+        babysitter.setStart("4:01 AM");
+    }
+
+
 }

@@ -7,6 +7,8 @@ public class Babysitter {
     /*
     Variable declaration
      */
+    private final LocalTime earliestTime = LocalTime.of(17, 0);
+    private final LocalTime latestTime = LocalTime.of(4, 0);
     int pay;
     char family;
     boolean busy;
@@ -40,6 +42,10 @@ public class Babysitter {
 
     void setStart(String inputTime) {
         this.startTime = LocalTime.parse(inputTime, DateTimeFormatter.ofPattern("h:mm a"));
+        // Check if time is within range of working hours
+        if (this.startTime.compareTo(earliestTime) < 0 && this.startTime.compareTo(latestTime) > 0) {
+            throw new IllegalArgumentException("Babysitter is not available during specified time");
+        }
     }
 
     String getStart() {
