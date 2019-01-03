@@ -51,7 +51,7 @@ public class Babysitter {
     void setEnd(String inputTime) {
         this.endTime = LocalTime.parse(inputTime, DateTimeFormatter.ofPattern("h:mm a"));
         // Check if time is within range of working hours
-        if (this.endTime.compareTo(earliestTime) < 0 && this.startTime.compareTo(latestTime) > 0) {
+        if (this.endTime.compareTo(earliestTime) < 0 && this.endTime.compareTo(latestTime) > 0) {
             throw new IllegalArgumentException("Babysitter is not available during specified time");
         }
     }
