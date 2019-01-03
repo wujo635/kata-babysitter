@@ -85,5 +85,20 @@ public class BabysitterTest {
         babysitter.setStart("4:01 AM");
     }
 
+    // End time is too early for babysitter
+    @Test
+    public void testEndTimeTooEarly() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Babysitter is not available during specified time");
+        babysitter.setStart("4:59 PM");
+    }
+
+    // End time is too late for babysitter
+    @Test
+    public void testEndTimeTooLate() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Babysitter is not available during specified time");
+        babysitter.setStart("4:01 AM");
+    }
 
 }
