@@ -116,4 +116,23 @@ public class BabysitterTest {
         expectedException.expectMessage("Family is not set");
         babysitter.calculatePay();
     }
+
+    // Calculate pay without proper setup, no start time
+    @Test
+    public void testCalculatePayWithNoStartTime() {
+        expectedException.expect(NullPointerException.class);
+        expectedException.expectMessage("Babysitter's schedule is not set");
+        babysitter.setFamily("A");
+        babysitter.calculatePay();
+    }
+
+    // Calculate pay without proper setup, no end time
+    @Test
+    public void testCalculatePayWithNoEndTime() {
+        expectedException.expect(NullPointerException.class);
+        expectedException.expectMessage("Babysitter's schedule is not set");
+        babysitter.setFamily("A");
+        babysitter.setStart("5:00 PM");
+        babysitter.calculatePay();
+    }
 }

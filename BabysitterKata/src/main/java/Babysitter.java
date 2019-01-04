@@ -90,6 +90,12 @@ public class Babysitter {
         if (this.family == '\0') {
             throw new RuntimeException("Family is not set");
         }
+        try {
+            this.startTime.toString();
+            this.endTime.toString();
+        } catch (NullPointerException e) {
+            throw new NullPointerException("Babysitter's schedule is not set");
+        }
     }
 
 }
