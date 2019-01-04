@@ -62,6 +62,14 @@ public class BabysitterTest {
         babysitter.setFamily("B");
     }
 
+    // Attempt to get babysitter start time without setting it prior
+    @Test
+    public void testUninitializedStartTime() {
+        expectedException.expect(NullPointerException.class);
+        expectedException.expectMessage("No start time set");
+        babysitter.getStart();
+    }
+
     // Babysitter with earliest start time
     @Test
     public void testEarliestStartTime() {
@@ -101,4 +109,11 @@ public class BabysitterTest {
         babysitter.setEnd("4:01 AM");
     }
 
+    // Calculate pay without proper setup, no family set
+    @Test
+    public void testCalculatePayWithNoFamily() {
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage("Family is not set");
+        babysitter.calculatePay();
+    }
 }

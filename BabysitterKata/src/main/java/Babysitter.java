@@ -57,11 +57,20 @@ public class Babysitter {
     }
 
     String getStart() {
-        return this.startTime.format(DateTimeFormatter.ofPattern("h:mm a"));
+        try {
+            return this.startTime.format(DateTimeFormatter.ofPattern("h:mm a"));
+        } catch (NullPointerException e) {
+            throw new NullPointerException("No start time set");
+        }
+
     }
 
     String getEnd() {
-        return this.endTime.format(DateTimeFormatter.ofPattern("h:mm a"));
+        try {
+            return this.endTime.format(DateTimeFormatter.ofPattern("h:mm a"));
+        } catch (NullPointerException e) {
+            throw new NullPointerException("No end time set");
+        }
     }
 
     char getFamily() {
@@ -77,6 +86,10 @@ public class Babysitter {
     }
 
     void calculatePay() {
-
+        // Error if any of family, start, or end time is null
+        if (this.family == '\0') {
+            throw new RuntimeException("Family is not set");
+        }
     }
+
 }
