@@ -168,4 +168,12 @@ public class BabysitterTest {
         babysitter.setEnd("11:00 PM");
         babysitter.calculatePay();
     }
+
+    // No fractional hours worked allowed
+    @Test
+    public void testFractionalHoursNotAllowed() {
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage("Babysitter only works full hours");
+        babysitter.setStart("5:15 PM");
+    }
 }

@@ -46,6 +46,10 @@ public class Babysitter {
         if (this.startTime.compareTo(earliestTime) < 0 && this.startTime.compareTo(latestTime) > 0) {
             throw new IllegalArgumentException("Babysitter is not available during specified time");
         }
+        // Check minutes-of-hour field
+        if (this.startTime.getMinute() != 0) {
+            throw new IllegalArgumentException("Babysitter only works full hours");
+        }
     }
 
     void setEnd(String inputTime) {
@@ -53,6 +57,10 @@ public class Babysitter {
         // Check if time is within range of working hours
         if (this.endTime.compareTo(earliestTime) < 0 && this.endTime.compareTo(latestTime) > 0) {
             throw new IllegalArgumentException("Babysitter is not available during specified time");
+        }
+        // Check minutes-of-hour field
+        if (this.endTime.getMinute() != 0) {
+            throw new IllegalArgumentException("Babysitter only works full hours");
         }
     }
 
