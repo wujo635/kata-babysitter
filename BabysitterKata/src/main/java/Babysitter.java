@@ -96,6 +96,13 @@ public class Babysitter {
         } catch (NullPointerException e) {
             throw new NullPointerException("Babysitter's schedule is not set");
         }
+
+        // Check start/end times make sense
+        if (!(this.startTime.isBefore(LocalTime.MAX) ^ this.endTime.isBefore(LocalTime.MAX))) {
+            if (this.endTime.isBefore(this.startTime)) {
+                throw new RuntimeException("Babysitter cannot work during input hours");
+            }
+        }
     }
 
 }

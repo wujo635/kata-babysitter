@@ -135,4 +135,26 @@ public class BabysitterTest {
         babysitter.setStart("5:00 PM");
         babysitter.calculatePay();
     }
+
+    // End time before start, when both occur before midnight
+    @Test
+    public void testEndBeforeStartInPM() {
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage("Babysitter cannot work during input hours");
+        babysitter.setFamily("A");
+        babysitter.setStart("6:00 PM");
+        babysitter.setEnd("5:00 PM");
+        babysitter.calculatePay();
+    }
+
+    // End time before start, when both occur after midnight
+    @Test
+    public void testEndBeforeStartInAM() {
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage("Babysitter cannot work during input hours");
+        babysitter.setFamily("A");
+        babysitter.setStart("1:00 AM");
+        babysitter.setEnd("12:00 AM");
+        babysitter.calculatePay();
+    }
 }
