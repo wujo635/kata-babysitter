@@ -9,10 +9,10 @@ public class Babysitter {
      */
     private final LocalTime earliestTime = LocalTime.of(17, 0);
     private final LocalTime latestTime = LocalTime.of(4, 0);
-    int pay;
-    char family;
-    boolean busy;
-    LocalTime startTime, endTime;
+    private int pay;
+    private char family;
+    private boolean busy;
+    private LocalTime startTime, endTime;
 
     /*
     Constructor(s)
@@ -86,7 +86,13 @@ public class Babysitter {
     }
 
     void calculatePay() {
-        // Error if any of family, start, or end time is null
+        this.checkForErrors();
+    }
+
+    void checkForErrors() {
+        boolean timeError = false;
+
+        // Error if any of family, start, or end time is null or not set
         if (this.family == '\0') {
             throw new RuntimeException("Family is not set");
         }
@@ -97,11 +103,19 @@ public class Babysitter {
             throw new NullPointerException("Babysitter's schedule is not set");
         }
 
-        // Check start/end times make sense
-        if (!(this.startTime.isBefore(LocalTime.MAX) ^ this.endTime.isBefore(LocalTime.MAX))) {
-            if (this.endTime.isBefore(this.startTime)) {
-                throw new RuntimeException("Babysitter cannot work during input hours");
+        // Check if start/end times make sense
+        if (this.endTime.isBefore(this.startTime)) {
+            if (this.startTime.isBefore(this.latestTime.minusMinutes(-1)) && this.endTime.isBefore(this.latestTime.minusMinutes(-1))) {
+                timeError = true;
+            } else if (this.startTime.isAfter(this.earliestTime.minusMinutes(1)) && this.endTime.isAfter(this.earliestTime.minusMinutes(1))) {
+                timeError = true;
             }
+        } else if (this.startTime.isBefore(this.latestTime) && this.endTime.isAfter(this.earliestTime)) {
+            timeError = true;
+        }
+
+        if (timeError) {
+            throw new RuntimeException("Babysitter cannot stop work before starting");
         }
     }
 
