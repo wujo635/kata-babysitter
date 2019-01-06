@@ -2,10 +2,9 @@ import org.junit.Test;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Ignore;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
-
-import org.junit.rules.ExpectedException;
 
 public class BabysitterTest {
 
@@ -246,5 +245,15 @@ public class BabysitterTest {
         babysitter.setEnd("12:00 AM");
         babysitter.calculatePay();
         assertEquals(16, babysitter.getPay());
+    }
+
+    // Family C, full time worked, payrate changes
+    @Test
+    public void testFamilyCFullTime() {
+        babysitter.setFamily("C");
+        babysitter.setStart("5:00 PM");
+        babysitter.setEnd("4:00 AM");
+        babysitter.calculatePay();
+        assertEquals(189, babysitter.getPay());
     }
 }

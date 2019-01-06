@@ -1,13 +1,10 @@
-import java.util.*;
 import java.time.*;
-import java.time.format.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Babysitter {
 
-    /*
-    Variable declaration
-     */
+    // Variables
     private final LocalTime earliestTime = LocalTime.of(17, 0);
     private final LocalTime latestTime = LocalTime.of(4, 0);
     private int pay;
@@ -15,17 +12,13 @@ public class Babysitter {
     private boolean busy;
     private LocalDateTime startTime, endTime;
 
-    /*
-    Constructor(s)
-     */
+    // Constructors
     Babysitter() {
         this.pay = 0;
         this.busy = false;
     }
 
-    /*
-    Functions
-     */
+    // Functions
     void setFamily(String family) {
         // Throw error if babysitter is already busy
         if (this.busy == true) {
@@ -98,7 +91,6 @@ public class Babysitter {
     }
 
     void calculatePay() {
-        // variables
         int hour;
         int hoursToWork;
         LocalDateTime counter;
@@ -115,7 +107,8 @@ public class Babysitter {
         hoursToWork = (int) ChronoUnit.HOURS.between(startTime, endTime);
         counter = this.startTime;
 
-        for (long i = 0; i < hoursToWork; i++) {
+        // Add amount paid per hour worked to running total
+        for (int i = 0; i < hoursToWork; i++) {
             // Switch case for pay per family
             switch (this.family) {
                 case 'A':
@@ -135,6 +128,11 @@ public class Babysitter {
                     }
                     break;
                 case 'C':
+                    if (counter.getHour() >= 17 && counter.getHour() < 21) {
+                        this.pay += 21;
+                    } else {
+                        this.pay += 15;
+                    }
                     break;
                 default:
                     // This should never be reached but seems applicable for default case
