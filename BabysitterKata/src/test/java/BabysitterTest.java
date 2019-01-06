@@ -176,4 +176,14 @@ public class BabysitterTest {
         expectedException.expectMessage("Babysitter only works full hours");
         babysitter.setStart("5:15 PM");
     }
+
+    // Start = end time, pay is zero
+    @Test
+    public void testZeroHoursSchedule() {
+        babysitter.setFamily("A");
+        babysitter.setStart("4:00 AM");
+        babysitter.setEnd("4:00 AM");
+        babysitter.calculatePay();
+        assertEquals(0,babysitter.getPay());
+    }
 }

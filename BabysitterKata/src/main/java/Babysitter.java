@@ -94,7 +94,27 @@ public class Babysitter {
     }
 
     void calculatePay() {
+        // Final checks for good input
         this.checkForErrors();
+
+        // If time elapsed is zero, no need to calculate
+        if (Duration.between(this.startTime,this.endTime).toHours() == 0) {
+            this.pay = 0;
+            return;
+        }
+
+        // Switch case for pay per family
+        switch (this.family) {
+            case 'A':
+                break;
+            case 'B':
+                break;
+            case 'C':
+                break;
+            default:
+                // This should never be reached but seems applicable for default case
+                throw new IllegalArgumentException("Family not recognized");
+        }
     }
 
     void checkForErrors() {
