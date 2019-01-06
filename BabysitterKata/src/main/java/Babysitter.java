@@ -94,11 +94,14 @@ public class Babysitter {
     }
 
     void calculatePay() {
+        // variables
+        int hour;
+
         // Final checks for good input
         this.checkForErrors();
 
         // If time elapsed is zero, no need to calculate
-        if (Duration.between(this.startTime,this.endTime).toHours() == 0) {
+        if (Duration.between(this.startTime, this.endTime).toHours() == 0) {
             this.pay = 0;
             return;
         }
@@ -106,6 +109,11 @@ public class Babysitter {
         // Switch case for pay per family
         switch (this.family) {
             case 'A':
+                hour = this.startTime.getHour();
+                while (hour < 23) {
+                    this.pay += 15;
+                    hour++;
+                }
                 break;
             case 'B':
                 break;

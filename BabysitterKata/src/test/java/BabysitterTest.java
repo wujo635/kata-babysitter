@@ -186,4 +186,14 @@ public class BabysitterTest {
         babysitter.calculatePay();
         assertEquals(0,babysitter.getPay());
     }
+
+    // Family A, work until 11 PM, no pay changes
+    @Test
+    public void testFamilyAFulltime() {
+        babysitter.setFamily("A");
+        babysitter.setStart("5:00 PM");
+        babysitter.setEnd("11:00 PM");
+        babysitter.calculatePay();
+        assertEquals(90,babysitter.getPay());
+    }
 }
