@@ -100,7 +100,8 @@ public class Babysitter {
     void calculatePay() {
         // variables
         int hour;
-        long hoursToWork;
+        int hoursToWork;
+        LocalDateTime counter;
 
         // Final checks for good input
         this.checkForErrors();
@@ -111,13 +112,19 @@ public class Babysitter {
             return;
         }
 
-        hoursToWork = ChronoUnit.HOURS.between(startTime, endTime);
-        hour = this.startTime.getHour();
+        hoursToWork = (int) ChronoUnit.HOURS.between(startTime, endTime);
+        counter = this.startTime;
 
         for (long i = 0; i < hoursToWork; i++) {
             // Switch case for pay per family
             switch (this.family) {
                 case 'A':
+                    if (counter.getHour() >= 17 && counter.getHour() < 23) {
+                        this.pay += 15;
+                    } else if (counter.getHour() == 23 || counter.getHour() < 4) {
+                        this.pay += 20;
+                    }
+                    counter = counter.plusHours(1);
                     break;
                 case 'B':
                     break;
