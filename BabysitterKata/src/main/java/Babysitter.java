@@ -1,6 +1,7 @@
 import java.util.*;
 import java.time.*;
 import java.time.format.*;
+import java.time.temporal.ChronoUnit;
 
 public class Babysitter {
 
@@ -12,7 +13,7 @@ public class Babysitter {
     private int pay;
     private char family;
     private boolean busy;
-    private LocalTime startTime, endTime;
+    private LocalDateTime startTime, endTime;
 
     /*
     Constructor(s)
@@ -40,28 +41,31 @@ public class Babysitter {
         }
     }
 
-    void setStart(String inputTime) {
-        this.startTime = LocalTime.parse(inputTime, DateTimeFormatter.ofPattern("h:mm a"));
+    LocalDateTime setupTime(String input) {
+        LocalTime time = LocalTime.parse(input, DateTimeFormatter.ofPattern("h:mm a"));
+        LocalDate date = LocalDate.now();
+
         // Check if time is within range of working hours
-        if (this.startTime.compareTo(earliestTime) < 0 && this.startTime.compareTo(latestTime) > 0) {
+        if (time.compareTo(earliestTime) < 0 && time.compareTo(latestTime) > 0) {
             throw new IllegalArgumentException("Babysitter is not available during specified time");
         }
         // Check minutes-of-hour field
-        if (this.startTime.getMinute() != 0) {
+        if (time.getMinute() != 0) {
             throw new IllegalArgumentException("Babysitter only works full hours");
         }
+        // Move day to tomorrow if hour crosses midnight
+        if (time.getHour() <= 4) {
+            date = date.plusDays(1);
+        }
+        return LocalDateTime.of(date, time);
+    }
+
+    void setStart(String inputTime) {
+        this.startTime = setupTime(inputTime);
     }
 
     void setEnd(String inputTime) {
-        this.endTime = LocalTime.parse(inputTime, DateTimeFormatter.ofPattern("h:mm a"));
-        // Check if time is within range of working hours
-        if (this.endTime.compareTo(earliestTime) < 0 && this.endTime.compareTo(latestTime) > 0) {
-            throw new IllegalArgumentException("Babysitter is not available during specified time");
-        }
-        // Check minutes-of-hour field
-        if (this.endTime.getMinute() != 0) {
-            throw new IllegalArgumentException("Babysitter only works full hours");
-        }
+        this.endTime = setupTime(inputTime);
     }
 
     String getStart() {
@@ -96,32 +100,33 @@ public class Babysitter {
     void calculatePay() {
         // variables
         int hour;
+        long hoursToWork;
 
         // Final checks for good input
         this.checkForErrors();
 
-        // If time elapsed is zero, no need to calculate
-        if (Duration.between(this.startTime, this.endTime).toHours() == 0) {
+        // If start = end time, no need to calculate
+        if (this.startTime.compareTo(this.endTime) == 0) {
             this.pay = 0;
             return;
         }
 
-        // Switch case for pay per family
-        switch (this.family) {
-            case 'A':
-                hour = this.startTime.getHour();
-                while (hour < 23) {
-                    this.pay += 15;
-                    hour++;
-                }
-                break;
-            case 'B':
-                break;
-            case 'C':
-                break;
-            default:
-                // This should never be reached but seems applicable for default case
-                throw new IllegalArgumentException("Family not recognized");
+        hoursToWork = ChronoUnit.HOURS.between(startTime, endTime);
+        hour = this.startTime.getHour();
+
+        for (long i = 0; i < hoursToWork; i++) {
+            // Switch case for pay per family
+            switch (this.family) {
+                case 'A':
+                    break;
+                case 'B':
+                    break;
+                case 'C':
+                    break;
+                default:
+                    // This should never be reached but seems applicable for default case
+                    throw new IllegalArgumentException("Family not recognized");
+            }
         }
     }
 
@@ -140,17 +145,7 @@ public class Babysitter {
         }
 
         // Check if start/end times make sense
-        if (this.endTime.isBefore(this.startTime)) {
-            if (this.startTime.isBefore(this.latestTime.minusMinutes(-1)) && this.endTime.isBefore(this.latestTime.minusMinutes(-1))) {
-                timeError = true;
-            } else if (this.startTime.isAfter(this.earliestTime.minusMinutes(1)) && this.endTime.isAfter(this.earliestTime.minusMinutes(1))) {
-                timeError = true;
-            }
-        } else if (this.startTime.isBefore(this.latestTime) && this.endTime.isAfter(this.earliestTime)) {
-            timeError = true;
-        }
-
-        if (timeError) {
+        if (endTime.isBefore(startTime)) {
             throw new RuntimeException("Babysitter cannot stop work before starting");
         }
     }
