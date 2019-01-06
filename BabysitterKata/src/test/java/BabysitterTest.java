@@ -228,4 +228,13 @@ public class BabysitterTest {
         assertEquals(80, babysitter.getPay());
     }
 
+    // Family B, work with two payrate changes
+    @Test
+    public void testFamilyBTwoPayrateChanges() {
+        babysitter.setFamily("B");
+        babysitter.setStart("5:00 PM");
+        babysitter.setEnd("1:00 AM");
+        babysitter.calculatePay();
+        assertEquals(92, babysitter.getPay());
+    }
 }

@@ -121,11 +121,18 @@ public class Babysitter {
                 case 'A':
                     if (counter.getHour() >= 17 && counter.getHour() < 23) {
                         this.pay += 15;
-                    } else if (counter.getHour() == 23 || counter.getHour() < 4) {
+                    } else {
                         this.pay += 20;
                     }
                     break;
                 case 'B':
+                    if (counter.getHour() >= 17 && counter.getHour() < 22) {
+                        this.pay += 12;
+                    } else if (counter.getHour() >= 22) {
+                        this.pay += 8;
+                    } else {
+                        this.pay += 16;
+                    }
                     break;
                 case 'C':
                     break;
