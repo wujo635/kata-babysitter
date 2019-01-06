@@ -1,3 +1,14 @@
+## README for your consideration
+
+### Dependencies
+
+### Instructions
+
+### Additional Notes
+
+***
+### Original Readme below
+***
 # Babysitter Kata
 
 ## Background
