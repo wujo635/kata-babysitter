@@ -237,4 +237,14 @@ public class BabysitterTest {
         babysitter.calculatePay();
         assertEquals(92, babysitter.getPay());
     }
+
+    // Family B, work between two payrate changes
+    @Test
+    public void testFamilyBBetweenPayrateChanges() {
+        babysitter.setFamily("B");
+        babysitter.setStart("10:00 PM");
+        babysitter.setEnd("12:00 AM");
+        babysitter.calculatePay();
+        assertEquals(16, babysitter.getPay());
+    }
 }
