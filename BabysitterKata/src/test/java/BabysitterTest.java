@@ -190,7 +190,7 @@ public class BabysitterTest {
 
     // Family A, work until 11 PM, no payrate changes
     @Test
-    public void testFamilyAFulltime() {
+    public void testFamilyANoPayrateChange() {
         babysitter.setFamily("A");
         babysitter.setStart("5:00 PM");
         babysitter.setEnd("11:00 PM");
@@ -206,5 +206,15 @@ public class BabysitterTest {
         babysitter.setEnd("12:00 AM");
         babysitter.calculatePay();
         assertEquals(110, babysitter.getPay());
+    }
+
+    // Famiyl A, work full time
+    @Test
+    public void testFamilyAFulltime() {
+        babysitter.setFamily("A");
+        babysitter.setStart("5:00 PM");
+        babysitter.setEnd("4:00 AM");
+        babysitter.calculatePay();
+        assertEquals(190, babysitter.getPay());
     }
 }
