@@ -198,9 +198,9 @@ public class BabysitterTest {
         assertEquals(90, babysitter.getPay());
     }
 
-    // Family A, work till midnight
+    // Family A, work until midnight, payrate changes
     @Test
-    public void testFamilyAWorkToMidnight() {
+    public void testFamilyAWorkWithPayrateChange() {
         babysitter.setFamily("A");
         babysitter.setStart("5:00 PM");
         babysitter.setEnd("12:00 AM");
@@ -208,7 +208,7 @@ public class BabysitterTest {
         assertEquals(110, babysitter.getPay());
     }
 
-    // Famiyl A, work full time
+    // Family A, work full allowable time
     @Test
     public void testFamilyAFulltime() {
         babysitter.setFamily("A");
@@ -217,4 +217,15 @@ public class BabysitterTest {
         babysitter.calculatePay();
         assertEquals(190, babysitter.getPay());
     }
+
+    // Family A, work after midnight only
+    @Test
+    public void testFamilyALateNightHoursOnly() {
+        babysitter.setFamily("A");
+        babysitter.setStart("12:00 AM");
+        babysitter.setEnd("4:00 AM");
+        babysitter.calculatePay();
+        assertEquals(80, babysitter.getPay());
+    }
+
 }

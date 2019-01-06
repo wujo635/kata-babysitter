@@ -124,7 +124,6 @@ public class Babysitter {
                     } else if (counter.getHour() == 23 || counter.getHour() < 4) {
                         this.pay += 20;
                     }
-                    counter = counter.plusHours(1);
                     break;
                 case 'B':
                     break;
@@ -134,6 +133,7 @@ public class Babysitter {
                     // This should never be reached but seems applicable for default case
                     throw new IllegalArgumentException("Family not recognized");
             }
+            counter = counter.plusHours(1);
         }
     }
 
