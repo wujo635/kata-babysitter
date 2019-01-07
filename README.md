@@ -7,7 +7,7 @@ Using the package manager Chocolatey will simplify the process of installing the
 
 Software | Requirement | Version / Link
 ---|---|---
-Chocolatey | Recommended | [Official site](https://chocolatey.org/)
+Chocolatey | Recommended | [Latest version](https://chocolatey.org/install)
 Java Development Kit | Required | [JDK 8 update 191 or later](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 Gradle | Required | [Release 3.4.1 or later](https://gradle.org/releases/)
 Windows OS | Recommended | If not Windows, refer to additional notes
@@ -28,9 +28,9 @@ Windows OS | Recommended | If not Windows, refer to additional notes
 8. A web-friendly html output of the test results can be found in the BabysitterKata folder under `.\build\reports\tests\test\index.html`
 
 ### Additional Notes
-* Refer to a helpful guide to setup Java unit testing with Gradle provided [here at Exercism.io](https://exercism.io/tracks/java/installation). This will provide instructions for non-Windows systems.\
-* To check the version of Gradle installed type `gradle -v` in the command prompt.\
-* To check the version of JDK either navigate to `C:\Program Files\Java\` or find it from a list of installed programs from the Control Panel.\
+* Refer to a helpful guide to setup Java unit testing with Gradle provided [here at Exercism.io](https://exercism.io/tracks/java/installation). This will provide instructions for non-Windows systems.
+* To check the version of Gradle installed type `gradle -v` in the command prompt.
+* To check the version of JDK either navigate to `C:\Program Files\Java\` or find it from a list of installed programs from the Control Panel.
 
 ***
 ### Original Readme below
