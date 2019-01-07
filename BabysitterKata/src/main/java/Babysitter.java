@@ -142,6 +142,13 @@ public class Babysitter {
         }
     }
 
+    void calculatePay(String family, String start, String end) {
+        this.setFamily(family);
+        this.setStart(start);
+        this.setEnd(end);
+        this.calculatePay();
+    }
+
     void checkForErrors() {
         boolean timeError = false;
 

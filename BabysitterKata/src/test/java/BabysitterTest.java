@@ -256,4 +256,11 @@ public class BabysitterTest {
         babysitter.calculatePay();
         assertEquals(189, babysitter.getPay());
     }
+
+    // Test overloaded calculatePay function with all inputs fed
+    @Test
+    public void testOverloadedCalculatePayFunction() {
+    	babysitter.calculatePay("C", "11:00 PM", "1:00 AM");
+    	assertEquals(30, babysitter.getPay());
+    }
 }
