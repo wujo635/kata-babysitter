@@ -14,10 +14,10 @@ Windows OS | Recommended | If not Windows, refer to additional notes
 
 ### Instructions
 
-1. Open a Command Prompt window (cmd.exe) with the "Run as administrator" option. 
+1. Open a command prompt window (cmd.exe) with the "Run as administrator" option. 
 2. Install Chocolatey by running the following command in the window.
 `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
-3. Install the JDK by entering the following into the command prompt:\
+3. Install the JDK by entering the following into the command prompt in sequence.\
 `choco install jdk8`\
 `refreshenv`
 4. Install Gradle with the following command:\
@@ -28,9 +28,9 @@ Windows OS | Recommended | If not Windows, refer to additional notes
 8. A web-friendly html output of the test results can be found in the BabysitterKata folder under `.\build\reports\tests\test\index.html`
 
 ### Additional Notes
-Refer to a helpful guide to setup Java unit testing with Gradle provided [here at Exercism.io](https://exercism.io/tracks/java/installation). This will provide instructions for non-Windows systems.\
-To check the version of Gradle installed type `gradle -v` in the command prompt.\
-To check the version of JDK either navigate to `C:\Program Files\Java\` or find it from a list of installed programs from the Control Panel.\
+* Refer to a helpful guide to setup Java unit testing with Gradle provided [here at Exercism.io](https://exercism.io/tracks/java/installation). This will provide instructions for non-Windows systems.\
+* To check the version of Gradle installed type `gradle -v` in the command prompt.\
+* To check the version of JDK either navigate to `C:\Program Files\Java\` or find it from a list of installed programs from the Control Panel.\
 
 ***
 ### Original Readme below
