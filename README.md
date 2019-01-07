@@ -1,10 +1,31 @@
 ## README for your consideration
 
-### Dependencies
+### Requirements
+The table below lists some software requirements for testing the custom babysitter class.
+Refer to the Instruction section for proper setup and steps to run the unit tests.
+Using the package manager Chocolatey will simplify the process of installing the JDK and Gradle.
+
+Software | Requirement | Version / Link
+---|---|---
+Chocolatey | Recommended | [Latest Download](https://chocolatey.org/)
+Java Development Kit | Required | [JDK 8 update 191 or later download](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+Gradle | Required | [Release 3.4.1 or later](https://gradle.org/releases/)
+Windows OS | Recommended | If not Windows, refer to additional notes
 
 ### Instructions
 
+1. Open the Command Prompt (cmd.exe) with the "Run as administrator" option. 
+2. Install Chocolatey by running the following command in the window.
+`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+3. Install the JDK by entering the following into the command prompt:\
+`choco install jdk8`\
+`refreshenv`
+
+4. Install Gradle with the following command:\
+`choco install gradle`
+
 ### Additional Notes
+Refer to a helpful guide to setup Java unit testing with Gradle provided [here at Exercism.io](https://exercism.io/tracks/java/installation)
 
 ***
 ### Original Readme below
