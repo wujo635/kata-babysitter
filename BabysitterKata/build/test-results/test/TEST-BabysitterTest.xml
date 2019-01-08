@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BabysitterTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2019-01-01T22:00:16" hostname="RYZEN_J" time="0.028">
+<testsuite name="BabysitterTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2019-01-08T04:17:46" hostname="RYZEN1700" time="0.047">
   <properties/>
-  <testcase name="testStartTimeTooEarly" classname="BabysitterTest" time="0.025"/>
+  <testcase name="testStartTimeTooEarly" classname="BabysitterTest" time="0.038"/>
+  <testcase name="testEndTimeTooEarly" classname="BabysitterTest" time="0.001"/>
+  <testcase name="testLongFamilyInput" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testZeroHoursSchedule" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testEndTimeTooLate" classname="BabysitterTest" time="0.001"/>
+  <testcase name="testEndBeforeStartAcrossMidnight" classname="BabysitterTest" time="0.0"/>
   <testcase name="testBusyBabysitter" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testCalculatePayWithNoFamily" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testUninitializedStartTime" classname="BabysitterTest" time="0.001"/>
+  <testcase name="testFamilyALateNightHoursOnly" classname="BabysitterTest" time="0.0"/>
   <testcase name="testNewBabysitterPay" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testFamilyBTwoPayrateChanges" classname="BabysitterTest" time="0.001"/>
   <testcase name="testInvalidFamily" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testCalculatePayWithNoStartTime" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testFamilyAWorkWithPayrateChange" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testFamilyANoPayrateChange" classname="BabysitterTest" time="0.0"/>
   <testcase name="testNewBabysitterNotBusy" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testOverloadedCalculatePayFunction" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testEndBeforeStartInAM" classname="BabysitterTest" time="0.001"/>
+  <testcase name="testEndBeforeStartInPM" classname="BabysitterTest" time="0.0"/>
   <testcase name="testMultipleFamilies" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testFamilyAFulltime" classname="BabysitterTest" time="0.0"/>
   <testcase name="testValidFamily" classname="BabysitterTest" time="0.0"/>
-  <testcase name="testStartTimeTooLate" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testStartTimeTooLate" classname="BabysitterTest" time="0.001"/>
+  <testcase name="testFractionalHoursNotAllowed" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testFamilyBBetweenPayrateChanges" classname="BabysitterTest" time="0.0"/>
+  <testcase name="testFamilyCFullTime" classname="BabysitterTest" time="0.001"/>
+  <testcase name="testCalculatePayWithNoEndTime" classname="BabysitterTest" time="0.0"/>
   <testcase name="testEarliestStartTime" classname="BabysitterTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
