@@ -22,7 +22,7 @@ Windows OS | Recommended | If not Windows, refer to additional notes
 `refreshenv`
 4. Install Gradle with the following command:\
 `choco install gradle`
-5. Download a copy of the BabysitterKata folder from this Github repository. Link
+5. Download a copy of the BabysitterKata folder from this Github repository. [Link](https://github.com/wujo635/kata-babysitter/archive/master.zip)
 6. Navigate to the folder by entering `cd FILEPATH` in the command prompt where `FILEPATH` refers to the download directory (eg. `cd C:\Users\username\Downloads\BabysitterKata`) 
 7. Enter `gradle test` in the command prompt and evaluate the output.
 8. A web-friendly html output of the test results can be found in the BabysitterKata folder under `.\build\reports\tests\test\index.html`
@@ -31,6 +31,7 @@ Windows OS | Recommended | If not Windows, refer to additional notes
 * Refer to a helpful guide to setup Java unit testing with Gradle provided [here at Exercism.io](https://exercism.io/tracks/java/installation). This will provide instructions for non-Windows systems.
 * To check the version of Gradle installed type `gradle -v` in the command prompt.
 * To check the version of JDK either navigate to `C:\Program Files\Java\` or find it from a list of installed programs from the Control Panel.
+* Gradle Wrapper included in the original submission with gradle 3.4.1. 
 
 ***
 ### Original Readme below
