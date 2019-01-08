@@ -31,7 +31,7 @@ Windows OS | Recommended | If not Windows, refer to additional notes
 * Refer to a helpful guide to setup Java unit testing with Gradle provided [here at Exercism.io](https://exercism.io/tracks/java/installation). This will provide instructions for non-Windows systems.
 * To check the version of Gradle installed type `gradle -v` in the command prompt.
 * To check the version of JDK either navigate to `C:\Program Files\Java\` or find it from a list of installed programs from the Control Panel.
-* Gradle Wrapper included in the original submission with gradle 3.4.1. 
+* Gradle Wrapper included in the original submission with gradle 3.4.1. Use `gradlew test` in the downloaded directory instead of `gradle test`.
 
 ***
 ### Original Readme below
