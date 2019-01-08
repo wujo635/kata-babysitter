@@ -39,6 +39,14 @@ public class BabysitterTest {
         babysitter.setFamily("D");
     }
 
+    // Family input parameter is of A, B, C but length > 1
+    @Test
+    public void testLongFamilyInput() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid family input");
+        babysitter.setFamily("AA");
+    }
+
     // Family input is valid
     @Test
     public void testValidFamily() {
@@ -81,7 +89,7 @@ public class BabysitterTest {
     @Test
     public void testStartTimeTooEarly() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Babysitter is not available during specified time");
+        expectedException.expectMessage("Babysitter not available during specified time");
         babysitter.setStart("4:59 PM");
     }
 
@@ -89,7 +97,7 @@ public class BabysitterTest {
     @Test
     public void testStartTimeTooLate() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Babysitter is not available during specified time");
+        expectedException.expectMessage("Babysitter not available during specified time");
         babysitter.setStart("4:01 AM");
     }
 
@@ -97,7 +105,7 @@ public class BabysitterTest {
     @Test
     public void testEndTimeTooEarly() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Babysitter is not available during specified time");
+        expectedException.expectMessage("Babysitter not available during specified time");
         babysitter.setEnd("4:59 PM");
     }
 
@@ -105,7 +113,7 @@ public class BabysitterTest {
     @Test
     public void testEndTimeTooLate() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Babysitter is not available during specified time");
+        expectedException.expectMessage("Babysitter not available during specified time");
         babysitter.setEnd("4:01 AM");
     }
 
